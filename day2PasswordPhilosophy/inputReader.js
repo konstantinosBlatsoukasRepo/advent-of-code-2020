@@ -16,8 +16,8 @@ try {
 
     let passwordContext = {
       password: password.replace('\r', ''),
-      minOccurences: parseInt(minOccurencesChar),
-      maxOccurences: parseInt(maxOccurencesChar),
+      minOccurencesOrFirstPosition: parseInt(minOccurencesChar),
+      maxOccurencesOrSecondPosition: parseInt(maxOccurencesChar),
       charUnderPolicy: charUnderPolicy
     };
 
