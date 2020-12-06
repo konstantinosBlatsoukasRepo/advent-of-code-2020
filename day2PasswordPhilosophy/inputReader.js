@@ -2,7 +2,6 @@ const fs = require('fs')
 
 try {
   const data = fs.readFileSync('input.txt', 'utf8');
-  // exports.input
   let passwordsContexts = [];
   for (const line of data.split('\n')) {
 
