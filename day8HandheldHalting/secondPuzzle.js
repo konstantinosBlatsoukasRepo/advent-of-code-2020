@@ -9,7 +9,6 @@ for (let index = 0; index < instructions.length; index++) {
     }
 }
 
-
 let result;
 for (let index = 0; index < nopOrJmpProgramPointers.length; index++) {
     let nopOrJmpProgramPointer = nopOrJmpProgramPointers[index];
