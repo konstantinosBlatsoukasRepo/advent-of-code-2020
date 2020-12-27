@@ -6,6 +6,8 @@ let currentSeatingState = inputReader.rowsAndColumns;
 const MAX_VALID_ROW_VALUE = currentSeatingState.length - 1;
 const MAX_VALID_COLUMN_VALUE = currentSeatingState[0].length - 1;
 
+const DIRECTIONS = ['North', 'North East', 'East', 'South East', 'South', 'South West', 'West', 'North West'];
+
 const EMPTY = 'L';
 const OCCUPIED = '#';
 const FLOOR = '.';
@@ -15,18 +17,12 @@ let isRowColumnValid = (row, column) => row <= MAX_VALID_ROW_VALUE &&
     row >= 0 &&
     column >= 0;
 
+let getVisibleSeats = (row, column, seatingState) =>
+    DIRECTIONS.map(direction => getVisibleSeat(direction, row, column, seatingState))
+              .filter(seat => seat !== FLOOR);
+
 console.log('second puzzle solution:');
 console.log(firstPuzzle.applyRulesTillStabilization(currentSeatingState, getVisibleSeats, 5));
-
-function getVisibleSeats(row, column, seatingState) {
-    let directions = ['North', 'North East', 'East', 'South East', 'South', 'South West', 'West', 'North West'];
-    let visibleSeats = [];
-    for (const direction of directions) {
-        let seat = getVisibleSeat(direction, row, column, seatingState);
-        visibleSeats.push(seat);
-    }
-    return visibleSeats.filter(seat => seat !== FLOOR);
-}
 
 function getVisibleSeat(direction, row, column, seatingState) {
     let seat = '.';
