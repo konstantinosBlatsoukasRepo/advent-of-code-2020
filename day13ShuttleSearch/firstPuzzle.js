@@ -6,6 +6,7 @@ let estimate = inputReader.estimate;
 let { earliestBusId: earliestBusId,
     estimateTimestamp: estimateTimestamp } = getEarliestBusIdAndTimestamp(busIds, estimate);
 
+console.log('first puzzle solution:');
 console.log((estimateTimestamp - estimate) * earliestBusId);
 
 function getEarliestBusIdAndTimestamp(busIds, estimate) {
